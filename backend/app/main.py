@@ -9,6 +9,11 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Mudi Homes API")
 
+@app.get("/ping")
+def ping():
+    return {"ping": True}
+
+
 app.include_router(blog_router.router)
 app.include_router(listing_router.router)
 app.include_router(user_router.router)
